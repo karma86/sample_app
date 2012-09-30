@@ -1,4 +1,4 @@
-Exception encountered: #<LoadError: cannot load such file -- /home/maria/rails_project/sample_app/signup with invalid information>
+Exception encountered: #<LoadError: cannot load such file -- /home/maria/rails_project/sample_app/signin with invalid information>
 backtrace:
 /var/lib/gems/1.9.1/gems/activesupport-3.2.8/lib/active_support/dependencies.rb:245:in `load'
 /var/lib/gems/1.9.1/gems/activesupport-3.2.8/lib/active_support/dependencies.rb:245:in `block in load'
