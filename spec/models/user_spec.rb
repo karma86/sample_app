@@ -128,4 +128,21 @@ describe User do
     end
   end
 
+  it {should respond_to(:admin)}
+   it { should respond_to(:authenticate) }
+
+  it { should be_valid }
+  it { should_not be(:admin)}
+
+  describe "with admin value set to true" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+
+    it { should be_admin}
+  end
+
+
+
 end
