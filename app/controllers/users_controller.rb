@@ -3,15 +3,15 @@ before_filter :signed_in_user, only: [:index, :edit, :update]
 before_filter :correct_user, only: [:edit, :update]
 
 
-	def show
-		@user = User.find(params[:id])
-	end
-
-	def new
-		@user = User.new
+  def show
+    @user = User.find(params[:id])
   end
 
-	def create
+  def new
+    @user = User.new
+  end
+
+  def create
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
@@ -22,11 +22,11 @@ before_filter :correct_user, only: [:edit, :update]
     end
   end
 
-	def edit
+  def edit
     @user = User.find(params[:id])
   end
 
-	def update
+  def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       sign_in @user
@@ -38,18 +38,18 @@ before_filter :correct_user, only: [:edit, :update]
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
-private
+  private
 
   def signed_in_user
-	    unless signed_in?
-	      store_location
-        flash[:notice] = "Please sign in."
-				redirect_to signin_url
-			end
+    unless signed_in?
+      store_location
+      flash[:notice] = "Please sign in."
+      redirect_to signin_url
     end
+  end
 
   def correct_user
     @user = User.find(params[:id])
